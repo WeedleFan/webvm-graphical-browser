@@ -3,17 +3,18 @@ export const diskImageUrl = IMAGE_URL;
 // The root filesystem backend type
 export const diskImageType = "github";
 // Print an introduction message about the technology
-export const printIntro = true;
-// Is a graphical display needed
-export const needsDisplay = false;
+export const printIntro = false;
+
+export const needsDisplay = true;
+
 // Executable full path (Required)
-export const cmd = CMD; // Default: "/bin/bash";
+export const cmd = "/usr/bin/openbox-session";
 // Arguments, as an array (Required)
 export const args = ARGS; // Default: ["--login"];
 // Optional extra parameters
 export const opts = {
-	// Environment variables
-	env: ENV, // Default: ["HOME=/home/user", "TERM=xterm", "USER=user", "SHELL=/bin/bash", "EDITOR=vim", "LANG=en_US.UTF-8", "LC_ALL=C"],
+	// Environment variables - include DISPLAY mapping for Xorg to find the frame buffer
+	env: ["HOME=/home/user", "TERM=xterm", "USER=user", "SHELL=/bin/bash", "EDITOR=vim", "LANG=en_US.UTF-8", "LC_ALL=C", "DISPLAY=:0"], 
 	// Current working directory
 	cwd: CWD, // Default: "/home/user",
 	// User id
